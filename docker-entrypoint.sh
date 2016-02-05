@@ -9,8 +9,7 @@ if [ ! -d '/var/lib/mysql/mysql' ]; then
 		DELETE FROM mysql.user;
 		CREATE USER 'root'@'%' IDENTIFIED BY '';
 		GRANT ALL ON *.* TO 'root'@'%' WITH GRANT OPTION;
-		DROP DATABASE IF EXISTS test;
-    FLUSH PRIVILEGES;
+		FLUSH PRIVILEGES;
 	EOSQL
 
 	set -- "$@" --init-file="$TEMP_FILE"
